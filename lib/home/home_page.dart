@@ -1,3 +1,4 @@
+import 'package:devquiz/challenge/challenge_page.dart';
 import 'package:devquiz/challenge/widgets/quiz/quiz_widget.dart';
 import 'package:devquiz/core/app_colors.dart';
 import 'package:devquiz/home/home_controller.dart';
@@ -66,12 +67,24 @@ class _HomePageState extends State<HomePage> {
                   crossAxisSpacing: 16,
                   mainAxisSpacing: 16,
                   children: controller.quizzes!
-                      .map((e) => QuizCardWidget(
-                            title: e.title,
-                            percent: e.questionAnswered / e.questions.length,
-                            completed:
-                                "${e.questionAnswered}/${e.questions.length}",
-                          ))
+                      .map(
+                        (e) => QuizCardWidget(
+                          title: e.title,
+                          percent: e.questionAnswered / e.questions.length,
+                          completed:
+                              "${e.questionAnswered}/${e.questions.length}",
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ChallengePage(
+                                  questions: e.questions,
+                                ),
+                              ),
+                            );
+                          },
+                        ),
+                      )
                       .toList(),
                 ),
               ),
