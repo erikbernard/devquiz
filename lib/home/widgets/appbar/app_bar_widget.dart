@@ -24,7 +24,7 @@ class AppBarWidget extends PreferredSize {
                     children: [
                       Text.rich(
                         TextSpan(
-                            text: "Olá, ",
+                            text: "Hello, ",
                             style: AppTextStyles.title,
                             children: [
                               TextSpan(
@@ -48,7 +48,9 @@ class AppBarWidget extends PreferredSize {
                 ),
                 Align(
                   alignment: Alignment(0, 1),
-                  child: ScoreCardWidget(),
+                  child: ScoreCardWidget(
+                    percent: user.score / 100,
+                  ),
                 ),
               ],
             ),

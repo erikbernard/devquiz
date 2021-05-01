@@ -1,5 +1,4 @@
 import 'package:devquiz/challenge/challenge_page.dart';
-import 'package:devquiz/challenge/widgets/quiz/quiz_widget.dart';
 import 'package:devquiz/core/app_colors.dart';
 import 'package:devquiz/home/home_controller.dart';
 import 'package:devquiz/home/home_state.dart';
@@ -45,16 +44,16 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   LevelButtonWidget(
-                    label: "Fácil",
+                    label: "easy",
                   ),
                   LevelButtonWidget(
-                    label: "Médio",
+                    label: "medium",
                   ),
                   LevelButtonWidget(
-                    label: "Difícil",
+                    label: "hard",
                   ),
                   LevelButtonWidget(
-                    label: "Perito",
+                    label: "expert",
                   ),
                 ],
               ),
@@ -78,6 +77,7 @@ class _HomePageState extends State<HomePage> {
                               context,
                               MaterialPageRoute(
                                 builder: (context) => ChallengePage(
+                                  title: e.title,
                                   questions: e.questions,
                                 ),
                               ),
